@@ -8,6 +8,7 @@ const initialState = {
   totalExpense: 0,
   transactions: [],
   searchResults: [],
+
 };
 
 let reducer = (state = initialState, action) => {
@@ -43,11 +44,14 @@ let reducer = (state = initialState, action) => {
       };
 
     case FILTER_TRANSACTIONS:
-      let filterSearch = state.searchResults;
+      let filterSearch = state.transactions;
+      // console.log(" Before Filter Search ....",filterSearch);
 
       filterSearch = filterSearch.filter((res) =>
         res.description.includes(action.payload)
       );
+
+      // console.log("After Filter Search ....",filterSearch)
       return {
         ...state,
         searchResults: filterSearch,

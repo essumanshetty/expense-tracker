@@ -14,7 +14,7 @@ function Transactions(props) {
   const inputRef = useRef(null);
 
   let { searchResults } = props.transactionsArray;
-  console.log(searchResults)
+  // console.log(searchResults)
   useEffect(() => {
     if (inputRef) {
       inputRef.current.focus();
@@ -22,6 +22,7 @@ function Transactions(props) {
   }, []);
 
   function inputChangeHandler(event) {
+    console.log(event.target.value)
     props.filterTransaction(event.target.value);
   }
 
